@@ -11,8 +11,12 @@ import {
 } from '@/components/ui/sheet';
 import { toast } from 'sonner';
 
-const HERO_IMG = 'https://cdn.poehali.dev/projects/13cc9ba5-5a5c-4ff8-9a40-93bd447ea799/files/8a74914b-90bc-4f7f-8ba5-444d7b07c2a6.jpg';
-const SAMPLES_IMG = 'https://cdn.poehali.dev/projects/13cc9ba5-5a5c-4ff8-9a40-93bd447ea799/files/2824a34c-f6d2-4945-ad34-53f3a434cf22.jpg';
+const HERO_IMG = 'https://cdn.poehali.dev/projects/13cc9ba5-5a5c-4ff8-9a40-93bd447ea799/bucket/d4585b9a-1230-42e8-b940-fef16df25562.jpeg';
+const SAMPLES_IMG = 'https://cdn.poehali.dev/projects/13cc9ba5-5a5c-4ff8-9a40-93bd447ea799/bucket/44b508d1-df0d-434a-8cde-169862527d50.jpeg';
+
+const IMG_SHAMPOO_RED = 'https://cdn.poehali.dev/projects/13cc9ba5-5a5c-4ff8-9a40-93bd447ea799/bucket/a294a0b4-fb9e-4a54-a181-015fcf5e3cda.jpeg';
+const IMG_CONDITIONER = 'https://cdn.poehali.dev/projects/13cc9ba5-5a5c-4ff8-9a40-93bd447ea799/bucket/44b508d1-df0d-434a-8cde-169862527d50.jpeg';
+const IMG_SHAMPOO_ORANGE = 'https://cdn.poehali.dev/projects/13cc9ba5-5a5c-4ff8-9a40-93bd447ea799/bucket/d4585b9a-1230-42e8-b940-fef16df25562.jpeg';
 
 const NAV = [
   { label: 'Главная', href: '#home' },
@@ -30,19 +34,78 @@ interface Product {
   category: string;
   notes: string;
   price: number;
+  img: string;
+  color: string;
   isNew?: boolean;
 }
 
 const PRODUCTS: Product[] = [
-  { id: 1, name: 'Silk Restore', brand: 'MARTIN', category: 'Шампунь', notes: 'Кератин · Аргановое масло · Протеины шёлка', price: 2900, isNew: true },
-  { id: 2, name: 'Deep Moisture', brand: 'MARTIN', category: 'Гель для душа', notes: 'Алоэ · Гиалуроновая кислота · Ши', price: 2400 },
-  { id: 3, name: 'Velvet Scalp', brand: 'ATELIER', category: 'Шампунь', notes: 'Цинк · Биотин · Мята', price: 3200, isNew: true },
-  { id: 4, name: 'Gold Ritual', brand: 'MARTIN', category: 'Гель для душа', notes: 'Золотые частицы · Ваниль · Масло жожоба', price: 3800 },
-  { id: 5, name: 'Pure Balance', brand: 'ATELIER', category: 'Шампунь', notes: 'Зелёная глина · Розмарин · Цитрус', price: 2700 },
-  { id: 6, name: 'Noir Lather', brand: 'ORIENS', category: 'Гель для душа', notes: 'Древесный уголь · Кедр · Мускус', price: 3100, isNew: true },
+  {
+    id: 1,
+    name: 'Контроль жирности',
+    brand: 'MARTINЭT',
+    category: 'Шампунь',
+    notes: 'Аромат кедра · Глубокое очищение · Контроль жирности',
+    price: 1490,
+    img: IMG_SHAMPOO_RED,
+    color: '#e8314a',
+    isNew: true,
+  },
+  {
+    id: 2,
+    name: 'Кондиционер',
+    brand: 'MARTINЭT',
+    category: 'Кондиционер',
+    notes: 'Уход после окрашивания · После завивки · Perm & Dye Care',
+    price: 1690,
+    img: IMG_CONDITIONER,
+    color: '#e8914a',
+  },
+  {
+    id: 3,
+    name: 'Освежающий эффект',
+    brand: 'MARTINЭT',
+    category: 'Шампунь',
+    notes: 'Аромат эвкалипта · Для мужчин · Контроль жирности',
+    price: 1490,
+    img: IMG_SHAMPOO_ORANGE,
+    color: '#e85a1a',
+    isNew: true,
+  },
+  {
+    id: 4,
+    name: 'Контроль жирности',
+    brand: 'MARTINЭT',
+    category: 'Шампунь',
+    notes: 'Аромат кедра · Глубокое очищение · Контроль жирности',
+    price: 1490,
+    img: IMG_SHAMPOO_RED,
+    color: '#e8314a',
+  },
+  {
+    id: 5,
+    name: 'Кондиционер',
+    brand: 'MARTINЭT',
+    category: 'Кондиционер',
+    notes: 'Уход после окрашивания · После завивки · Perm & Dye Care',
+    price: 1690,
+    img: IMG_CONDITIONER,
+    color: '#e8914a',
+    isNew: true,
+  },
+  {
+    id: 6,
+    name: 'Освежающий эффект',
+    brand: 'MARTINЭT',
+    category: 'Шампунь',
+    notes: 'Аромат эвкалипта · Для мужчин · Контроль жирности',
+    price: 1490,
+    img: IMG_SHAMPOO_ORANGE,
+    color: '#e85a1a',
+  },
 ];
 
-const BRANDS = ['MARTIN', 'ATELIER', 'ORIENS', 'BOTANIQ', 'LUMÈNE', 'PURA'];
+const BRANDS = ['MARTINЭT'];
 
 interface CartItem extends Product {
   qty: number;
@@ -79,7 +142,7 @@ export default function Index() {
       <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
         <div className="container flex items-center justify-between h-20">
           <a href="#home" className="font-display text-3xl tracking-[0.3em] text-gold">
-            MARTIN
+            MARTINЭT
           </a>
           <nav className="hidden lg:flex items-center gap-9">
             {NAV.map((n) => (
@@ -118,11 +181,11 @@ export default function Index() {
               Премиальный уход
             </p>
             <h1 className="font-display text-6xl md:text-8xl leading-[0.95] mb-8 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-              Ритуал<br />
-              <span className="italic text-gold">красоты</span>
+              Твой стиль,<br />
+              <span className="italic text-gold">твоя эпоха.</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-md animate-fade-up" style={{ animationDelay: '0.2s' }}>
-              Шампуни и гели для душа с профессиональными формулами. Попробуйте пробник перед покупкой полного объёма.
+              Шампуни и кондиционеры с профессиональными формулами. Контроль жирности, уход после окрашивания, освежающий эффект.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
               <Button asChild size="lg" className="rounded-none px-10 h-14 tracking-[0.15em] uppercase text-xs bg-[hsl(var(--gold))] text-background hover:bg-[hsl(var(--gold))]/90">
@@ -143,37 +206,48 @@ export default function Index() {
           <h2 className="font-display text-5xl md:text-6xl">Каталог средств</h2>
           <div className="gold-line h-px w-24 mx-auto mt-8" />
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {PRODUCTS.map((p) => (
-            <div key={p.id} className="group">
-              <div className="relative aspect-[3/4] overflow-hidden bg-card border border-border/60">
+            <div key={p.id} className="group cursor-pointer">
+              {/* Фото-карточка */}
+              <div
+                className="relative aspect-[4/5] overflow-hidden border border-border/40 flex items-center justify-center"
+                style={{ background: `radial-gradient(ellipse at 60% 30%, ${p.color}22 0%, hsl(var(--card)) 70%)` }}
+              >
+                {/* Декоративный цветной круг */}
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-3xl opacity-30 transition-opacity duration-500 group-hover:opacity-50"
+                  style={{ background: p.color }}
+                />
                 <img
-                  src={HERO_IMG}
+                  src={p.img}
                   alt={p.name}
-                  className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+                  className="relative z-10 h-[85%] w-full object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-700"
                 />
                 {p.isNew && (
-                  <span className="absolute top-4 left-4 bg-[hsl(var(--gold))] text-background text-[10px] tracking-[0.2em] uppercase px-3 py-1">
+                  <span className="absolute top-4 left-4 bg-[hsl(var(--gold))] text-background text-[10px] tracking-[0.2em] uppercase px-3 py-1 z-20">
                     Новинка
                   </span>
                 )}
-                <span className="absolute top-4 right-4 bg-background/70 backdrop-blur text-foreground text-[10px] tracking-[0.15em] uppercase px-3 py-1">
+                <span className="absolute top-4 right-4 bg-background/80 backdrop-blur text-foreground text-[10px] tracking-[0.15em] uppercase px-3 py-1 z-20">
                   {p.category}
                 </span>
-                <div className="absolute inset-0 bg-background/0 group-hover:bg-background/40 transition-colors duration-500 flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100">
+                {/* Hover-overlay */}
+                <div className="absolute inset-0 bg-background/0 group-hover:bg-background/50 transition-colors duration-500 flex items-end justify-center pb-6 z-20 opacity-0 group-hover:opacity-100">
                   <button
                     onClick={() => addToCart(p, true)}
-                    className="border-gold border text-gold text-[11px] tracking-[0.2em] uppercase px-5 py-2 bg-background/60 backdrop-blur hover:bg-[hsl(var(--gold))] hover:text-background transition-colors"
+                    className="border border-gold text-gold text-[11px] tracking-[0.2em] uppercase px-5 py-2 bg-background/70 backdrop-blur hover:bg-[hsl(var(--gold))] hover:text-background transition-colors"
                   >
                     Пробник · 290 ₽
                   </button>
                 </div>
               </div>
+              {/* Описание */}
               <div className="pt-5 text-center">
-                <p className="text-[11px] tracking-[0.25em] text-muted-foreground uppercase mb-2">{p.brand}</p>
+                <p className="text-[11px] tracking-[0.25em] text-muted-foreground uppercase mb-1">{p.brand}</p>
                 <h3 className="font-display text-2xl mb-2">{p.name}</h3>
-                <p className="text-xs text-muted-foreground mb-4">{p.notes}</p>
-                <div className="flex items-center justify-center gap-4">
+                <p className="text-xs text-muted-foreground mb-4 leading-relaxed">{p.notes}</p>
+                <div className="flex items-center justify-center gap-5">
                   <span className="text-gold text-lg">{fmt(p.price)}</span>
                   <button
                     onClick={() => addToCart(p)}
@@ -196,18 +270,35 @@ export default function Index() {
             <h2 className="font-display text-5xl md:text-6xl">Новинки сезона</h2>
             <div className="gold-line h-px w-24 mx-auto mt-8" />
           </div>
-          <div className="grid sm:grid-cols-3 gap-10">
+          <div className="grid sm:grid-cols-3 gap-8">
             {PRODUCTS.filter((p) => p.isNew).map((p) => (
-              <div key={p.id} className="text-center border border-border/60 p-8 bg-background/40 hover:border-gold transition-colors duration-500">
-                <Icon name="Sparkles" size={28} className="mx-auto text-gold mb-5" />
-                <p className="text-[11px] tracking-[0.25em] text-muted-foreground uppercase mb-1">{p.brand}</p>
-                <p className="text-[11px] tracking-[0.15em] text-gold uppercase mb-2">{p.category}</p>
-                <h3 className="font-display text-2xl mb-2">{p.name}</h3>
-                <p className="text-xs text-muted-foreground mb-5">{p.notes}</p>
-                <p className="text-gold text-lg mb-5">{fmt(p.price)}</p>
-                <Button onClick={() => addToCart(p)} variant="outline" className="rounded-none border-gold text-gold hover:bg-[hsl(var(--gold))] hover:text-background tracking-[0.15em] uppercase text-xs">
-                  В корзину
-                </Button>
+              <div key={p.id} className="group text-center border border-border/60 bg-background/40 hover:border-gold transition-colors duration-500 overflow-hidden">
+                {/* Фото */}
+                <div
+                  className="relative h-56 flex items-center justify-center"
+                  style={{ background: `radial-gradient(ellipse at 50% 40%, ${p.color}33 0%, hsl(var(--card)) 75%)` }}
+                >
+                  <div
+                    className="absolute w-32 h-32 rounded-full blur-2xl opacity-40"
+                    style={{ background: p.color }}
+                  />
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    className="relative z-10 h-48 w-full object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-600"
+                  />
+                </div>
+                {/* Инфо */}
+                <div className="p-6">
+                  <p className="text-[11px] tracking-[0.25em] text-muted-foreground uppercase mb-1">{p.brand}</p>
+                  <p className="text-[11px] tracking-[0.15em] uppercase mb-2" style={{ color: p.color }}>{p.category}</p>
+                  <h3 className="font-display text-2xl mb-2">{p.name}</h3>
+                  <p className="text-xs text-muted-foreground mb-5 leading-relaxed">{p.notes}</p>
+                  <p className="text-gold text-lg mb-5">{fmt(p.price)}</p>
+                  <Button onClick={() => addToCart(p)} variant="outline" className="rounded-none border-gold text-gold hover:bg-[hsl(var(--gold))] hover:text-background tracking-[0.15em] uppercase text-xs">
+                    В корзину
+                  </Button>
+                </div>
               </div>
             ))}
           </div>
@@ -217,8 +308,10 @@ export default function Index() {
       {/* Samples feature */}
       <section id="samples" className="py-28 container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-square overflow-hidden border border-border/60">
-            <img src={SAMPLES_IMG} alt="Пробники средств" className="w-full h-full object-cover" />
+          <div className="relative aspect-square overflow-hidden border border-border/60 flex items-center justify-center"
+               style={{ background: 'radial-gradient(ellipse at 50% 40%, #e8914a22 0%, hsl(var(--card)) 70%)' }}>
+            <div className="absolute w-56 h-56 rounded-full blur-3xl opacity-25" style={{ background: '#e8314a' }} />
+            <img src={SAMPLES_IMG} alt="Пробники средств" className="relative z-10 h-[88%] w-full object-contain drop-shadow-2xl" />
           </div>
           <div>
             <p className="text-gold text-xs tracking-luxe uppercase mb-4">Эксклюзивно</p>
@@ -323,8 +416,8 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-12 border-t border-border/60">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
-          <span className="font-display text-2xl tracking-[0.3em] text-gold">MARTIN</span>
-          <p className="text-xs text-muted-foreground tracking-wider">© 2026 MARTIN. Все права защищены.</p>
+          <span className="font-display text-2xl tracking-[0.3em] text-gold">MARTINЭT</span>
+          <p className="text-xs text-muted-foreground tracking-wider">© 2026 MARTINЭT. Все права защищены.</p>
           <div className="flex gap-5">
             {['Instagram', 'Send', 'Facebook'].map((i) => (
               <a key={i} href="#" className="text-muted-foreground hover:text-gold transition-colors">
@@ -351,7 +444,10 @@ export default function Index() {
               <div className="flex-1 overflow-y-auto space-y-5 py-6">
                 {cart.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-center border-b border-border/60 pb-5">
-                    <img src={HERO_IMG} alt="" className="w-16 h-20 object-cover border border-border/60" />
+                    <div className="w-16 h-20 border border-border/60 flex items-center justify-center overflow-hidden shrink-0"
+                         style={{ background: `radial-gradient(ellipse, ${item.color}33 0%, hsl(var(--card)) 100%)` }}>
+                      <img src={item.img} alt="" className="h-full w-full object-contain p-1" />
+                    </div>
                     <div className="flex-1">
                       <h4 className="font-display text-xl">{item.name}</h4>
                       <p className="text-[11px] text-muted-foreground uppercase tracking-wider">
