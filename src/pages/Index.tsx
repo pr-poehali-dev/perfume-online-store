@@ -33,15 +33,15 @@ interface Product {
 }
 
 const PRODUCTS: Product[] = [
-  { id: 1, name: 'Noir Absolu', brand: 'MAISON', notes: 'Уд · Шафран · Роза', price: 14900, isNew: true },
-  { id: 2, name: 'Lumière Dorée', brand: 'MAISON', notes: 'Бергамот · Ваниль · Амбра', price: 12400 },
+  { id: 1, name: 'Noir Absolu', brand: 'MARTIN', notes: 'Уд · Шафран · Роза', price: 14900, isNew: true },
+  { id: 2, name: 'Lumière Dorée', brand: 'MARTIN', notes: 'Бергамот · Ваниль · Амбра', price: 12400 },
   { id: 3, name: 'Velours Blanc', brand: 'ATELIER', notes: 'Ирис · Мускус · Кашемир', price: 16800, isNew: true },
   { id: 4, name: 'Oud Royal', brand: 'ORIENS', notes: 'Уд · Кожа · Табак', price: 21500 },
   { id: 5, name: 'Fleur de Nuit', brand: 'ATELIER', notes: 'Тубероза · Жасмин · Сандал', price: 13700 },
   { id: 6, name: 'Ambre Sauvage', brand: 'ORIENS', notes: 'Амбра · Ладан · Ветивер', price: 18200, isNew: true },
 ];
 
-const BRANDS = ['MAISON', 'ATELIER', 'ORIENS', 'PARFUM PRIVÉ', 'DE LUNE', 'SILLAGE'];
+const BRANDS = ['MARTIN', 'ATELIER', 'ORIENS', 'PARFUM PRIVÉ', 'DE LUNE', 'SILLAGE'];
 
 interface CartItem extends Product {
   qty: number;
@@ -78,7 +78,7 @@ export default function Index() {
       <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
         <div className="container flex items-center justify-between h-20">
           <a href="#home" className="font-display text-3xl tracking-[0.3em] text-gold">
-            MAISON
+            MARTIN
           </a>
           <nav className="hidden lg:flex items-center gap-9">
             {NAV.map((n) => (
@@ -318,8 +318,8 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-12 border-t border-border/60">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
-          <span className="font-display text-2xl tracking-[0.3em] text-gold">MAISON</span>
-          <p className="text-xs text-muted-foreground tracking-wider">© 2026 MAISON. Все права защищены.</p>
+          <span className="font-display text-2xl tracking-[0.3em] text-gold">MARTIN</span>
+          <p className="text-xs text-muted-foreground tracking-wider">© 2026 MARTIN. Все права защищены.</p>
           <div className="flex gap-5">
             {['Instagram', 'Send', 'Facebook'].map((i) => (
               <a key={i} href="#" className="text-muted-foreground hover:text-gold transition-colors">
